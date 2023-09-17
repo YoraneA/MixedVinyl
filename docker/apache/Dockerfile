@@ -2,12 +2,6 @@
 
 FROM httpd:latest
 
-# Change port and update server name
-RUN sed -i \
-    -e 's/Listen 80/Listen 8000/' \
-    -e 's/^#ServerName.*/ServerName localhost:8000/' \
-    /usr/local/apache2/conf/httpd.conf
-
 # Enable proxy and fcgi modules
 RUN sed -i \
     -e 's/^#\(LoadModule proxy_module modules\/mod_proxy.so\)/\1/' \
@@ -32,8 +26,8 @@ USER app:app
 # Change workdir
 WORKDIR /var/www/html
 
-# Expose port 8000
-EXPOSE 8000
+# Expose port 80
+EXPOSE 80
 
 # Start apache
 CMD ["httpd-foreground"]

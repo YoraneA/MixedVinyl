@@ -4,7 +4,7 @@ services:
   httpd:
     build: 'docker/apache/'
     ports:
-      - "8000:8000"
+      - "8000:80"
     depends_on:
       - phpfpm
     volumes:
