@@ -12,8 +12,6 @@ services:
 
   phpfpm:
     build: 'docker/phpfpm/'
-    expose:
-      - 9000
     volumes:
       - .:/var/www/html
 
